@@ -5,6 +5,15 @@
 #this must also be displayed “The original shape was SHAPE and it was updated to SHAPE.” 
 #Repeat this for colour.
 
+def tallyToDict(value, dict):
+    if value in dict:
+        dict[value] += 1
+        return False
+    else:
+        dict[value] = 1
+        return True
+
+
 exitFlag = False
 integer = 0
 colour = "N/A"
@@ -26,37 +35,22 @@ while exitFlag != True:
 
                 dissimilar = False
 
-                integer = userInteger
-                colour = userColour
-                shape = userShape
 
                 #Add to Dicionaries
-                #add if in dictionary
-                if userShape in shapes:
-                    shapes[userShape] += 1
-                else:
-                    shapes[userShape] = 1
-                    dissimilar = True
-
-                #add if in dictionary
-                if userColour in colours:
-                    colours[userColour] += 1
-                else:
-                    colours[userColour] = 1
-                    dissimilar = True
-
-                if userInteger in integers:
-                    integers[userInteger] += 1
-                else:
-                    integers[userInteger] = 1
-                    dissimilar = True
-                
+                dissimilar = tallyToDict(userShape, shapes)
+                dissimilar = tallyToDict(userColour, colours)
+                dissimilar = tallyToDict(userInteger, integers)
                 if dissimilar:
                     print("\n--------------------------------------------------------------------")
                     print(f"The original shape was {shape} and it was updated to {userShape}")
                     print(f"The original colour was {colour} and it was updated to {userColour}")
                     print(f"The original shape was {integer} and it was updated to {userInteger}")
                     print("-------------------------------------------------------'exit'-to-exit\n")
+                else:
+                    print("\nNothing Different----------------------------------------------------\n") 
+                integer = userInteger
+                colour = userColour
+                shape = userShape
 
             else:
                 exitFlag = True
