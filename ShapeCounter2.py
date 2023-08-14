@@ -13,7 +13,6 @@ def tallyToDict(value, dict):
         dict[value] = 1
         return True
 
-
 exitFlag = False
 integer = 0
 colour = "N/A"
@@ -25,16 +24,15 @@ colours = {}
 integers = {}
 
 while exitFlag != True:
-    userShape = input("What Shape? ")
+    userShape = input("What Shape? ").lower()
     if userShape.lower() != "exit":
-        userColour = input("What colour? ")
+        userColour = input("What colour? ").lower()
         if userShape.lower() != "exit":
-            userInteger = input("What integer? ")
+            userInteger = input("What integer? ").lower()
             if userInteger.lower() != "exit":
                 userInteger = int(userInteger)
 
                 dissimilar = False
-
 
                 #Add to Dicionaries
                 dissimilar = tallyToDict(userShape, shapes)
@@ -47,7 +45,7 @@ while exitFlag != True:
                     print(f"The original shape was {integer} and it was updated to {userInteger}")
                     print("-------------------------------------------------------'exit'-to-exit\n")
                 else:
-                    print("\nNothing Different----------------------------------------------------\n") 
+                    print("\nNothing Different--------------------------------------'exit'-to-exit\n") 
                 integer = userInteger
                 colour = userColour
                 shape = userShape
