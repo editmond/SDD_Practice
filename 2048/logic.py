@@ -16,7 +16,6 @@ def start_game():
 	mat =[]
 	for i in range(4):
 		mat.append([0] * 4)
-
 	# printing controls for user
 	print("Commands are as follows : ")
 	print("'W' or 'w' : Move Up")
@@ -27,6 +26,7 @@ def start_game():
 	# calling the function to add
 	# a new 2 in grid after every step
 	add_new_2(mat)
+	print("mat created")
 	return mat
 
 # function to add a new 2 in
@@ -41,13 +41,13 @@ def add_new_2(mat):
 	# while loop will break as the
 	# random cell chosen will be empty
 	# (or contains zero)
-	while(mat[r] != 0):
+	while(mat[r][c] != 0):
 		r = random.randint(0, 3)
 		c = random.randint(0, 3)
 
 	# we will place a 2 at that empty
 	# random cell.
-	mat[r] = 2
+	mat[r][c] = 2
 
 # function to get the current
 # state of game
@@ -249,6 +249,18 @@ def move_down(grid):
 	# results.
 	new_grid = transpose(new_grid)
 	return new_grid, changed
+
+def gameOver(status, mat):
+
+	#check the status for gameover
+	if(status == 'GAME NOT OVER'):
+		#add new 2 if not game over
+		add_new_2(mat)
+		return	False
+
+	else:
+		#return gameover condition
+		return True 
 
 # this file only contains all the logic
 # functions to be called in main function

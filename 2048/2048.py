@@ -12,6 +12,7 @@ if __name__ == '__main__':
 # to initialize the matrix
 	mat = logic.start_game()
 
+print("Game Start")
 while(True):
 
 	# taking the user input
@@ -28,13 +29,8 @@ while(True):
 		status = logic.get_current_state(mat)
 		print(status)
 
-		# if game not over then continue
-		# and add a new two
-		if(status == 'GAME NOT OVER'):
-			logic.add_new_2(mat)
-
-		# else break the loop
-		else:
+		#if there is a gameover, break.
+		if (logic.gameOver(status, mat) == True):
 			break
 
 	# the above process will be followed
@@ -46,9 +42,9 @@ while(True):
 		mat, flag = logic.move_down(mat)
 		status = logic.get_current_state(mat)
 		print(status)
-		if(status == 'GAME NOT OVER'):
-			logic.add_new_2(mat)
-		else:
+
+		#if there is a gameover, break.
+		if (logic.gameOver(status, mat) == True):
 			break
 
 	# to move left
@@ -56,9 +52,8 @@ while(True):
 		mat, flag = logic.move_left(mat)
 		status = logic.get_current_state(mat)
 		print(status)
-		if(status == 'GAME NOT OVER'):
-			logic.add_new_2(mat)
-		else:
+		#if there is a gameover, break.
+		if (logic.gameOver(status, mat) == True):
 			break
 
 	# to move right
@@ -66,9 +61,8 @@ while(True):
 		mat, flag = logic.move_right(mat)
 		status = logic.get_current_state(mat)
 		print(status)
-		if(status == 'GAME NOT OVER'):
-			logic.add_new_2(mat)
-		else:
+		#if there is a gameover, break.
+		if (logic.gameOver(status, mat) == True):
 			break
 	else:
 		print("Invalid Key Pressed")
