@@ -52,6 +52,7 @@ while(not exitFlag):
 		print("Invalid Key Pressed")
 		action = False
 
+	#perform an action if valid
 	if action:	
 		# get the current state and print it
 		status = logic.get_current_state(mat)

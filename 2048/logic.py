@@ -129,8 +129,7 @@ def compress(mat):
 					changed = True
 				pos += 1
 
-	# returning new compressed matrix
-	# and the flag variable.
+	# returning new compressed matrix and the flag variable.
 	return new_mat, changed
 
 # function to merge the cells
@@ -262,7 +261,7 @@ def gameOver(status, mat):
 		#add new 2 if not game over
 		add_new_2(mat)
 		return	False
-	
+
 	else:
 		#return gameover condition
 		return True 
