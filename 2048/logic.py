@@ -26,7 +26,6 @@ def start_game():
 	# calling the function to add
 	# a new 2 in grid after every step
 	add_new_2(mat)
-	print("mat created")
 	return mat
 
 # function to add a new 2 in
@@ -250,14 +249,20 @@ def move_down(grid):
 	new_grid = transpose(new_grid)
 	return new_grid, changed
 
-def gameOver(status, mat):
+#A way to display the mat in a 2048 way
+def displayMat(mat):
+	print("\n")
+	for row in mat:
+		print(row)
+	
 
+def gameOver(status, mat):
 	#check the status for gameover
 	if(status == 'GAME NOT OVER'):
 		#add new 2 if not game over
 		add_new_2(mat)
 		return	False
-
+	
 	else:
 		#return gameover condition
 		return True 
